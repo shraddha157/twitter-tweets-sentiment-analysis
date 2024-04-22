@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    Body {
+
+  font-family: Calibri, Helvetica, sans-serif;
+}
+.bg-image {
+  background: url('{% static "mysite/image/tt.jpg" %}');
+  background-repeat:no-repeat;
+  background-size: 1000px 650px;
+  background-position:center 150px;
+  position:relative;
+  }
+button {
+       background-color: #99ccff;
+       width: 100%;
+        color: white;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+         }
+ form {
+        border: 3px solid light grey;
+         padding-left:550px;
+
+    }
+input{
+background-color: #F5F5F5;
+}
+ input[type=text], input[type=number] {
+        border-top-style: hidden;
+        border-right-style:hidden;
+        border-left-style:hidden;
+        border-bottom-style:#808080
+        background-color: grey;
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        box-sizing: border-box;
+        padding-top:15px;
+    }
+    .no-outline:focus{
+    outline:none;
+    }
+    button{
+    border-radius: 20px;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+
+
+
+ .container {
+        width:510px;
+        padding: 40px;
+        padding-left:30px;
+        background-color: transparent;
+    }
+</style>
+</head>
+<body class="bg-image">
+<center> <h3><b> Search For Tweets Here </b></h3> </center>
+    <form method="POST" action="/twt">{% csrf_token %}
+        <div class="container">
+
+            <input type="text" placeholder="Enter HashTag  e.g #abc" name="Htag" required>
+            <input type="number" placeholder="Enter the number of tweets you want to see  e.g 20" name="numb" required>
+            <button><b>search</b></button>
+        </div>
+    </form>
+
+</body>
+</html>

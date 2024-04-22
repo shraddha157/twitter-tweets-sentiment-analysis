@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tweets</title>
+    <style>
+        button {
+       background-color: #99ccff;
+       width: 20%;
+        color: white;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+        margin-left: 520px;
+         }
+          button{
+    border-radius: 20px;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+form {
+        padding-left:600px;
+        border: 3px solid light grey;
+    }
+    </style>
+</head>
+<body>
+{% block gvalue %}
+            <h3>{{gvalue}}</h3>
+{% endblock %}
+{% block content %}
+           {% for c in content %}
+            <p>{{c}}</p>
+           {% endfor %}
+{% endblock %}
+
+<button><a href="/sa"><b>Check Sentiment Analysis</b></a></button>
+</body>
+</html>

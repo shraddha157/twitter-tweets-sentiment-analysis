@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+   $("#flip1").click(function(){
+    $("#panel1").slideToggle("slow");
+  });
+});
+</script>
+<style>
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+#panel1, #flip1 {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
+
+#panel1 {
+  padding: 50px;
+  display: none;
+}
+</style>
+<style>
+    h4{
+      margin-left:30px;
+      }
+      .green{
+      color:green;
+      }
+      .red{
+      color:red;
+      }
+      .dropbtn {
+      width:160px;
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  padding-left:680px;
+  padding-top:30px;
+  position: relative;
+  display: inline-block;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+.hide{display:none;}
+.show{display
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h4><span class="green"><b><u>Positive tweet percentage</u>:{{data1}}%</b></span></h4>
+<h4><span class="red"><b><u>Negative tweet percentage</u>:{{data2}}%</b></span></h4>
+<h4><b><u>Neutral tweet percentage</u>:{{data3}}%</b></h4>
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Tweets</button>
+  <div id="myDropdown" class="dropdown-content">
+      <div id="flip"><a href="#PositiveTweets">Positive</a></div>
+      <div id="flip1"><a href="#">Negative</a></div>
+  </div>
+</div>
+<div id="panel">
+    {% block data4 %}
+           {% for c in data4 %}
+            <p>{{c}}</p>
+           {% endfor %}
+{% endblock %}
+</div>
+<div id="panel1">
+    {% block data5 %}
+           {% for c in data5 %}
+            <p>{{c}}</p>
+           {% endfor %}
+{% endblock %}
+</div>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
